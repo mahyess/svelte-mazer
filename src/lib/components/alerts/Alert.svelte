@@ -1,6 +1,4 @@
 <script lang="ts">
-	import Icon from '../icons/Icon.svelte'
-
 	import type { Size, Variant } from './types'
 
 	export let variant: Variant = 'primary'
@@ -9,18 +7,30 @@
 	export let rounded: Boolean = false
 	export let size: Size = 'md'
 	export let dismissible: Boolean = false
+
+	let isShow: Boolean = true
 </script>
 
 <div
+	class:alert
+	class:d-none={!isShow}
+	class:rounded-pill={rounded}
+	class:alert-dismissible={dismissible}
 	class="
 		{$$props.class} 
-		alert 
 		alert{outline ? '-outline' : light ? '-light' : ''}-{variant} 
-		{rounded ? 'rounded-pill' : ''} 
 		alert-{size} 
-		{dismissible ? 'alert-dismissible' : ''} 
 "
+	role="alert"
 >
-	<Icon />
 	<slot />
+	{#if dismissible}
+		<button
+			on:click={() => (isShow = !isShow)}
+			type="button"
+			class="btn-close"
+			data-bs-dismiss="alert"
+			aria-label="Close"
+		/>
+	{/if}
 </div>
