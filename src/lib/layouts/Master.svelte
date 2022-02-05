@@ -5,7 +5,7 @@
 	import '$lib/assets/css/bootstrap.css'
 	import type { MenuCategory } from '$lib/types'
 
-	export let sidebarItems: MenuCategory[]
+	export let sidebarItems: MenuCategory[] = []
 </script>
 
 <svelte:head>
@@ -29,7 +29,10 @@
 
 <template>
 	<div id="app" class={$$props.class}>
-		<Sidebar {sidebarItems} active={true} />
+		{#if sidebarItems}
+			<Sidebar {sidebarItems} active={true} />
+		{/if}
+
 		<div id="main">
 			<header class="mb-3">
 				<!-- svelte-ignore a11y-invalid-attribute -->
