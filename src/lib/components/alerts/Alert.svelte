@@ -12,15 +12,15 @@
 </script>
 
 <div
-	class:alert
 	class:d-none={!isShow}
 	class:rounded-pill={rounded}
 	class:alert-dismissible={dismissible}
 	class="
-		{$$props.class} 
-		alert{outline ? '-outline' : light ? '-light' : ''}-{variant} 
-		alert-{size} 
-"
+		{$$props.class}
+		alert
+		alert-{size}
+		alert-{outline ? 'outline-' : light ? 'light-' : ''}{variant}
+	"
 	role="alert"
 >
 	<slot />
