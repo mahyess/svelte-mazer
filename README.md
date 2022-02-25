@@ -7,7 +7,6 @@ Steps to use the components library:
 - npm i svelte-mazer
 - yarn add svelte-mazer
 
-- import Button from 'svelte-mazer/components/Button.svelte'
-- <Button />
+- import Button from 'svelte-mazer/components/Button.svelte' and likewise
 
 ## Docs coming soon
